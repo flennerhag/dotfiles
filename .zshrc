@@ -52,36 +52,12 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm python pyenv pip pep8 osx github aws virtualenv tmux)
+plugins=(git npm python pyenv pip pep8 github aws virtualenv tmux)
 
 # Environmental variables
 
 # zsh - don't share history between windows
 setopt nosharehistory
-
-
-export VISUAL=/usr/local/bin/vim  # Use homebrew vim
-export TERM=xterm-256color
-
-export MLENS_TMPDIR=$HOME/.mlens
-
-export SPOTIFY_CLIENT_ID="925293298b104b17a437be78ce4c7b62"
-export SPOTIFY_SECRET_KEY="1acea3e0c89c434094375cb384cfb273"
-export SPOTIFY_CALL_TOKEN="OTI1MjkzMjk4YjEwNGIxN2E0MzdiZTc4Y2U0YzdiNjI6MWFjZWEzZTBjODljNDM0MDk0Mzc1Y2IzODRjZmIyNzM="  # generate with python base64.base64(bytes("$client_id:$secret_key"), 'utf-8') 
-####################################################################################
-# Aliases
-alias jekyll="bundle exec jekyll"
-alias ptp="pdftopng -r 600"
-alias mvim="mvim -g"
-
-alias s="spotify"
-alias se="spotify pause"
-alias sy="spotify play"
-alias st="spotify play artist"
-alias sm="spotify play album"
-alias sn="spotify next"
-alias s+="spotify vol up"
-alias s-="spotify vol down"
 
 ####################################################################################
 # User configuration
@@ -115,11 +91,7 @@ alias s-="spotify vol down"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Z quick navigation
-. `brew --prefix`/etc/profile.d/z.sh
-
 ####################################################################################
 # Initialize
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
