@@ -13,7 +13,7 @@ cd $HOME
  echo "Installing zsh"
 sudo apt-get -y install zsh
 sudo sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-cd .oh-my-sh && clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+cd ./.oh-my-sh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 echo "if [ -f /bin/zsh ]\nthen\n  exec /bin/zsh\nfi" >> .bashrc
 
 # Set up VIM
