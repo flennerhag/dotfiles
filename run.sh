@@ -1,5 +1,4 @@
 #! /bin/bash
-# This script is a minimal configuration for the ds servers 
 set -e
 
 cd $HOME
@@ -11,20 +10,17 @@ cd $HOME
 # sudo yum -y install git
 
 # Set up terminal
-# echo "Installing zsh"
-# sudo yum -y install zsh
-# sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-# cd .oh-my-sh && clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-# echo "if [ -f /bin/zsh ]\nthen\n  exec /bin/zsh\nfi" >> .bashrc
+ echo "Installing zsh"
+sudo apt-get -y install zsh
+sudo sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+cd .oh-my-sh && clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "if [ -f /bin/zsh ]\nthen\n  exec /bin/zsh\nfi" >> .bashrc
 
 # Set up VIM
 # echo "Setting up VIM"
-# sudo yum -y install vim vim-enhanced 
-
-# Neovim
-# sudo yum -y install epel-release
-# curl -o /etc/yum.repos.d/dperson-neovim-epel-7.repo https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo 
-# sudo yum -y install neovim
+sudo add-apt-repository -y ppa:jonathonf/vim
+sudo apt update 
+sudo apt -y install vim
 
 # Anaconda
 # echo "Installing Anaconda"
@@ -38,8 +34,9 @@ echo "Porting all dotfiles"
 rsync -av --progress $HOME/dotfiles/ $HOME/ --exclude .git 
 
 # Vundle Plugins
-# echo "Syncing dotfile dependencies"
-# vim -es -n -c "PluginInstall"
+echo "Syncing dotfile dependencies"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim -es -n -c "PluginInstall"
 source $HOME/.zshrc
 
 echo "Install complete"
